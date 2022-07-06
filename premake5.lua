@@ -22,6 +22,11 @@ project "imgui"
         "backends/imgui_impl_opengl3.cpp"
 	}
 
+    includedirs
+    {
+        "."
+    }
+
 	sysincludedirs
 	{
 		"%{GlfwInclude}"
