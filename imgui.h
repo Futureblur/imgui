@@ -2474,6 +2474,12 @@ struct ImColor
     ImColor(ImU32 rgba)                                             { float sc = 1.0f / 255.0f; Value.x = (float)((rgba >> IM_COL32_R_SHIFT) & 0xFF) * sc; Value.y = (float)((rgba >> IM_COL32_G_SHIFT) & 0xFF) * sc; Value.z = (float)((rgba >> IM_COL32_B_SHIFT) & 0xFF) * sc; Value.w = (float)((rgba >> IM_COL32_A_SHIFT) & 0xFF) * sc; }
     inline operator ImU32() const                                   { return ImGui::ColorConvertFloat4ToU32(Value); }
     inline operator ImVec4() const                                  { return Value; }
+    
+    inline ImColor operator+(const ImColor& other) const
+    { return { other.Value.x + Value.x, other.Value.y + Value.y, other.Value.z + Value.z, other.Value.w + Value.w }; }
+
+    inline ImColor operator-(const ImColor& other) const
+    { return { other.Value.x - Value.x, other.Value.y - Value.y, other.Value.z - Value.z, other.Value.w - Value.w }; }
 
     // FIXME-OBSOLETE: May need to obsolete/cleanup those helpers.
     inline void    SetHSV(float h, float s, float v, float a = 1.0f){ ImGui::ColorConvertHSVtoRGB(h, s, v, Value.x, Value.y, Value.z); Value.w = a; }
