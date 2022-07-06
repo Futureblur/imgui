@@ -13,6 +13,7 @@ examples/build/*
 examples/*/Debug/*
 examples/*/Release/*
 examples/*/x64/*
+obj
 
 ## Visual Studio artifacts
 .vs
