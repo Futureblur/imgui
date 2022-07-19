@@ -31,3 +31,12 @@ project "imgui"
 	{
 		"%{GlfwInclude}"
 	}
+
+    filter "system:windows"
+        staticruntime "off"
+
+    filter { "configurations:Debug", "system:windows" }
+        runtime "Debug"
+
+    filter { "configurations:Release", "system:windows" }
+        runtime "Release"
